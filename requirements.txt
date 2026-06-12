@@ -1,0 +1,174 @@
+# ================================
+# Python Version
+# ================================
+# Requires Python 3.11+
+
+# ================================
+# Core LangChain
+# ================================
+langchain==0.1.16
+langchain-community
+langchain-core
+
+# ================================
+# Google Gemini (Generative AI)
+# ================================
+langchain-google-genai
+google-generativeai
+
+# ================================
+# Environment & Configuration
+# ================================
+python-dotenv
+
+# ================================
+# Data Validation
+# ================================
+pydantic<2.0
+
+# ================================
+# HTTP & Networking
+# ================================
+requests
+httpx==0.27.0
+
+# ================================
+# Web Scraping & Automation
+# ================================
+selenium
+webdriver-manager
+
+# ================================
+# Translation & Language Detection
+# ================================
+googletrans==4.0.0-rc1
+deep-translator
+langdetect
+
+# ================================
+# Speech Processing
+# ================================
+SpeechRecognition
+pyttsx3
+
+# ================================
+# Windows Dependency Helper
+# ================================
+pipwin
+
+# ================================
+# FastAPI Backend (Uncomment if used)
+# ================================
+fastapi
+uvicorn
+sqlalchemy
+python-multipart
+passlib[bcrypt]
+python-jose[cryptography]
+
+# ================================
+# Whisper (Requires FFmpeg installed separately)
+# ================================
+openai-whisper
+googletrans
+
+"""
+DOWNLOAD ffmpeg
+
+🔹 STEP 1: Download the RIGHT FFmpeg build
+
+👉 Open this link (trusted & simplest for Windows):
+
+https://www.gyan.dev/ffmpeg/builds/
+
+🔹 STEP 2: Download THIS file (recommended)
+
+Click “ffmpeg-git-full.7z”
+(or ffmpeg-git-full.zip if you prefer zip)
+
+⚠️ Do NOT download:
+
+source code
+
+dev package
+
+✅ STEP 3: Extract the archive
+
+After extraction, you MUST see this structure:
+
+ffmpeg-git-full/
+ ├── bin/
+ │    ├── ffmpeg.exe
+ │    ├── ffprobe.exe
+ │    └── ffplay.exe
+ ├── doc/
+ └── presets/
+
+
+👉 If you do NOT see ffmpeg.exe, stop — wrong file.
+
+✅ STEP 4: Move & Rename (Recommended)
+
+Rename folder:
+
+ffmpeg-git-full  →  ffmpeg
+
+
+Move it to:
+
+C:\ffmpeg
+
+
+Final path should be:
+
+C:\ffmpeg\bin\ffmpeg.exe
+
+✅ STEP 5: Add FFmpeg to PATH
+
+Press Win + S → search Environment Variables
+
+Open Edit the system environment variables
+
+Click Environment Variables
+
+Under System variables → select Path
+
+Click Edit → New
+
+Paste:
+
+C:\ffmpeg\bin
+
+
+OK → OK → OK
+
+⚠️ Close ALL command prompts and open a new one.
+
+✅ STEP 6: Verify (VERY IMPORTANT)
+
+Open NEW Command Prompt and run:
+
+ffmpeg -version
+
+✅ You should see:
+ffmpeg version git-...
+
+
+If not → PATH is wrong.
+
+🧠 How to quickly tell if you downloaded the WRONG file
+What you see	Meaning
+.tar.xz file	❌ Source code
+No .exe files	❌ Wrong build
+Folders like libav*	❌ Source
+bin/ffmpeg.exe	✅ Correct
+✅ Once this works, Whisper WILL work
+
+Whisper internally runs:
+
+ffmpeg -i audio.webm ...
+
+
+If ffmpeg -version works → Whisper works ✔
+"""
+
