@@ -35,7 +35,7 @@ Important instructions:
 - Keep points concise and in bullet lists where appropriate.
 - Mention if any information may change over time.
 - If the scheme name is ambiguous, pick the most well-known Indian government scheme with that name and clearly mention your assumption.
-
+- personalise the content to user details if available (e.g., age, location, occupation) and mention that you are personalising the content.
 Required OUTPUT FORMAT (Markdown):
 
 # Scheme-{Scheme_Name}

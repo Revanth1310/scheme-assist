@@ -8,11 +8,11 @@ from fastapi.responses import StreamingResponse
 from sqlalchemy import or_
 from backend.database import Base, engine, SessionLocal
 from backend.models import User
-from backend.schemas import SignupSchema, LoginSchema , ChatRequest
+from backend.schemas import SignupSchema, LoginSchema 
 from backend.auth import create_user, verify_password
 from fastapi.middleware.cors import CORSMiddleware
 from backend.agent import run_agent
-from pydantic import BaseModel
+from backend.security import create_access_token,SECRET_KEY, ALGORITHM
 from langdetect import detect
 import whisper
 import tempfile
@@ -29,9 +29,7 @@ whisper_model = whisper.load_model("base")  # base = fast + accurate
 
 
 # ------------------ CONFIG ------------------
-SECRET_KEY = "CHANGE_THIS_TO_A_SECURE_RANDOM_KEY"
-ALGORITHM = "HS256"
-ACCESS_TOKEN_EXPIRE_MINUTES = 60
+
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="login")
 
@@ -55,12 +53,8 @@ def get_db():
     finally:
         db.close()
 
-# ------------------ JWT UTILS ------------------
-def create_access_token(data: dict, expires_delta: timedelta | None = None):
-    to_encode = data.copy()
-    expire = datetime.utcnow() + (expires_delta or timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES))
-    to_encode.update({"exp": expire})
-    return jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
+
+
 
 
 def get_current_user(

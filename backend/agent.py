@@ -156,10 +156,8 @@ async def run_agent(user_input: str, user: User ,language: str="en") -> str:
     print(f"Router decision: {decision_json}")
     tool = decision_json.get("tool")
     args = decision_json.get("arguments", {})
-    
-    if tool == "list_scheme":
-        if user:
-            info= {
+    if user:
+        info= {
                 "gender": user.gender,
                 "age": user.age, 
                 "residence": user.residence,
@@ -178,8 +176,10 @@ async def run_agent(user_input: str, user: User ,language: str="en") -> str:
                 "economic_distress":user.economic_distress
             }
         
-        if user:
+    if user:
             args.update(info)
+            
+    if tool == "list_scheme":
         print(f"Calling list_scheme with args: {args}") 
         args.pop("query") if "query" in args else None
         result = list_scheme(**args)
