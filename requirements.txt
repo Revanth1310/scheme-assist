@@ -24,7 +24,8 @@ python-dotenv
 # ================================
 # Data Validation
 # ================================
-pydantic<2.0
+fastapi==0.103.2
+pydantic==1.10.15
 
 # ================================
 # HTTP & Networking
@@ -59,7 +60,7 @@ pipwin
 # ================================
 # FastAPI Backend (Uncomment if used)
 # ================================
-fastapi
+
 uvicorn
 sqlalchemy
 python-multipart
