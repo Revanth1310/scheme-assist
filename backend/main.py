@@ -287,3 +287,7 @@ async def tts(data: dict):
                 yield chunk["data"]
 
     return StreamingResponse(audio_stream(), media_type="audio/mpeg")
+
+@app.get("/ping")
+def ping():
+    return {"status": "alive"}
