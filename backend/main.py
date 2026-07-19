@@ -1,4 +1,4 @@
-import email
+
 from fastapi import FastAPI, Depends, HTTPException, status, UploadFile, File, Request
 from fastapi.security import OAuth2PasswordBearer
 from sqlalchemy.orm import Session
@@ -19,7 +19,7 @@ import tempfile
 import edge_tts
 
 import os
-from gtts import gTTS
+
 from fastapi.responses import FileResponse
 import uuid
 
