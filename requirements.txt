@@ -1,75 +1,34 @@
-# ================================
-# Python Version
-# ================================
-# Requires Python 3.11+
-
-# ================================
-# Core LangChain
-# ================================
 langchain==0.1.16
 langchain-community
 langchain-core
 
-# ================================
-# Google Gemini (Generative AI)
-# ================================
 langchain-google-genai
 google-generativeai
 
-# ================================
-# Environment & Configuration
-# ================================
 python-dotenv
 
-# ================================
-# Data Validation
-# ================================
 fastapi==0.103.2
+uvicorn
+
 pydantic==1.10.15
 
-# ================================
-# HTTP & Networking
-# ================================
-requests
-httpx==0.27.0
-
-# ================================
-# Web Scraping & Automation
-# ================================
-selenium
-webdriver-manager
-
-# ================================
-# Translation & Language Detection
-# ================================
-
-deep-translator
-langdetect
-
-# ================================
-# Speech Processing
-# ================================
-SpeechRecognition
-pyttsx3
-
-# ================================
-# Windows Dependency Helper
-# ================================
-pipwin
-
-# ================================
-# FastAPI Backend (Uncomment if used)
-# ================================
-
-uvicorn
 sqlalchemy
 python-multipart
 passlib[bcrypt]
 python-jose[cryptography]
 
-# ================================
-# Whisper (Requires FFmpeg installed separately)
-# ================================
+requests
+httpx==0.27.0
+
+selenium
+webdriver-manager
+
+deep-translator
+langdetect
+
+SpeechRecognition
+pyttsx3
+edge-tts
+
 openai-whisper
 googletrans
-
