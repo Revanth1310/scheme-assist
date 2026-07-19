@@ -1,6 +1,6 @@
 import os
 from dotenv import load_dotenv
-from google import genai
+import google.generativeai as genai
 
 # ---------------------------
 # 1. Setup
@@ -14,11 +14,11 @@ if not API_KEY:
     raise ValueError("GEMINI_API_KEY not found. Please set it in your .env file.")
 
 # Create Gemini client (NEW SDK)
-client = genai.Client(api_key=API_KEY)
+genai.configure(api_key=API_KEY)
 
-# Choose model
-MODEL_NAME = "gemini-3-flash-preview"
+MODEL_NAME = "gemini-2.5-flash"
 
+model = genai.GenerativeModel(MODEL_NAME)
 # ---------------------------
 # 2. Prompt template
 # ---------------------------
@@ -97,15 +97,14 @@ def explain_scheme_markdown(scheme_name: str) -> str:
     Queries Gemini and returns Markdown output
     """
     prompt = build_prompt(scheme_name)
-    response = client.models.generate_content(
-        model=MODEL_NAME,
-        contents=prompt,
-        config={
-            "temperature": 0.4,
-            "top_p": 0.9,
-            "top_k": 40,
-            "max_output_tokens": 2048,
-        }
+    response = model.generate_content(
+        prompt,
+        generation_config=genai.GenerationConfig(
+            temperature=0.4,
+            top_p=0.9,
+            top_k=40,
+            max_output_tokens=2048,
+        )
     )
 
     return response.text
