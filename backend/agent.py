@@ -8,8 +8,7 @@ import json
 from typing import Dict
 from dotenv import load_dotenv
 
-# ---------------- VOICE ----------------
-import pyttsx3
+
 
 # ---------------- LANGCHAIN ----------------
 from langchain_google_genai import ChatGoogleGenerativeAI
@@ -34,16 +33,7 @@ load_dotenv()
 # VOICE (SAFE)
 # ============================================================
 
-tts = pyttsx3.init()
-tts.setProperty("rate", 165)
 
-def speak(text: str):
-    try:
-        tts.stop()
-        tts.say(text[:800])   # limit length
-        tts.runAndWait()
-    except Exception:
-        pass
 
 
 # ============================================================
