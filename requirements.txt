@@ -27,7 +27,7 @@ deep-translator
 langdetect
 
 SpeechRecognition
-pyttsx3
+
 edge-tts
 
 openai-whisper
