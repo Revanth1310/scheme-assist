@@ -32,3 +32,4 @@ edge-tts
 
 openai-whisper
 googletrans
+email-validator
